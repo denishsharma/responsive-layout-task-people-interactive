@@ -23,6 +23,7 @@ import '~/assets/styles/base/reset.css'
 import '~/components/sidebar/sidebar-navigation-item'
 import '~/components/sidebar/sidebar'
 import '~/components/header/header'
+import '~/components/chart-card/chart-card'
 
 import '~/views/root'
 

@@ -1,7 +1,15 @@
+import styles from '~/fragments/root/main-content/styles/main-content-section-fragment.css?raw'
+
+const fragmentStyleSheet = new CSSStyleSheet()
+fragmentStyleSheet.replaceSync(styles)
+
 export class MainContentSectionFragment extends HTMLElement {
   constructor() {
     super()
     this.attachShadow({ mode: 'open' })
+
+    if (!this.shadowRoot) { return }
+    this.shadowRoot.adoptedStyleSheets = [fragmentStyleSheet]
   }
 
   connectedCallback() {
@@ -12,12 +20,12 @@ export class MainContentSectionFragment extends HTMLElement {
     if (!this.shadowRoot) { return }
     this.shadowRoot.innerHTML = `
       <div class="content-grid">
-        <div class="chart-card"></div>
-        <div class="chart-card"></div>
-        <div class="chart-card"></div>
-        <div class="chart-card"></div>
-        <div class="chart-card"></div>
-        <div class="chart-card"></div>
+        <chart-card></chart-card>
+        <chart-card></chart-card>
+        <chart-card></chart-card>
+        <chart-card></chart-card>
+        <chart-card></chart-card>
+        <chart-card></chart-card>
       </div>
     `
   }

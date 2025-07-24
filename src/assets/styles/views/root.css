@@ -13,19 +13,6 @@
   flex-direction: column;
 }
 
-.root__content {
-  flex-grow: 1;
-
-  max-width: 80rem;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-
-  display: flex;
-  flex-direction: column;
-}
-
 .fab-button {
   position: fixed;
   right: 1.5rem;
