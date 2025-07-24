@@ -20,5 +20,10 @@ export default antfu({
       'style/member-delimiter-style': 'error',
     },
   },
+  typescript: {
+    overrides: {
+      'ts/no-redeclare': 'off',
+    },
+  },
   lessOpinionated: true,
 })

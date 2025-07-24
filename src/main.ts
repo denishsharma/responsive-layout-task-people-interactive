@@ -1,24 +1,25 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import '~icons/lucide/align-justify'
+import '~icons/lucide/brick-wall'
+import '~icons/lucide/circle-gauge'
+import '~icons/lucide/cloud-cog'
+import '~icons/lucide/code-xml'
+import '~icons/lucide/database'
+import '~icons/lucide/history'
+import '~icons/lucide/layers'
+import '~icons/lucide/layout-dashboard'
+import '~icons/lucide/server'
+import '~icons/lucide/shield-half'
+import '~icons/lucide/sparkles'
+import '~icons/lucide/tablet-smartphone'
+import '~icons/lucide/zap'
+import '~icons/simple-icons/datadog'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+import '~/assets/styles/base/tokens.css'
+import '~/assets/styles/base/reset.css'
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+import '~/components/sidebar/sidebar-navigation-item'
+import '~/components/sidebar/sidebar'
+
+import '~/views/root'
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `<root-view></root-view>`

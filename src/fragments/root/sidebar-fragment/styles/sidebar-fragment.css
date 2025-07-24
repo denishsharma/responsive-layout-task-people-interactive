@@ -1,0 +1,29 @@
+:host {
+  width: 16rem;
+  display: flex;
+  flex-shrink: 0;
+  background-color: color-mix(in oklab, var(--color-neutral-800) 30%, var(--color-neutral-900));
+}
+
+.root__sidebar-divider {
+  width: 1px;
+  background-color: var(--color-neutral-800);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (prefers-color-scheme: light) {
+  :host {
+    background-color: var(--color-neutral-50);
+  }
+
+  .root__sidebar-divider {
+    background-color: var(--color-neutral-100);
+  }
+}
+
+@media (max-width: 991px) {
+  :host {
+    display: none;
+  }
+}
