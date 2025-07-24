@@ -11,7 +11,7 @@ export class MainContentHeaderFragment extends HTMLElement {
   render() {
     if (!this.shadowRoot) { return }
     this.shadowRoot.innerHTML = `
-      <div class="header"></div>
+      <app-header></app-header>
     `
   }
 }

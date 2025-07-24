@@ -14,12 +14,15 @@ import '~icons/lucide/tablet-smartphone'
 import '~icons/lucide/zap'
 import '~icons/simple-icons/datadog'
 import '~icons/lucide/x'
+import '~icons/lucide/star'
+import '~icons/lucide/chevron-down'
 
 import '~/assets/styles/base/tokens.css'
 import '~/assets/styles/base/reset.css'
 
 import '~/components/sidebar/sidebar-navigation-item'
 import '~/components/sidebar/sidebar'
+import '~/components/header/header'
 
 import '~/views/root'
 

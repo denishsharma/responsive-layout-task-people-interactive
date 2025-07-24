@@ -105,3 +105,22 @@
   background-color: var(--color-neutral-700);
   border-color: var(--color-neutral-600);
 }
+
+@media (prefers-color-scheme: light) {
+  .root__mobile-sidebar-drawer {
+    background-color: var(--color-neutral-50);
+  }
+
+  .root__sidebar-divider {
+    background-color: var(--color-neutral-100);
+  }
+
+  .mobile-sidebar__close-button {
+    background-color: var(--color-neutral-200);
+  }
+
+  .mobile-sidebar__close-button:hover {
+    background-color: var(--color-neutral-300);
+    border-color: var(--color-neutral-400);
+  }
+}
