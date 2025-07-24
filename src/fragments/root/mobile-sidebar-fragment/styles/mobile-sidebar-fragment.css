@@ -1,0 +1,107 @@
+:host {
+  z-index: 100;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  pointer-events: none;
+}
+
+@keyframes overlay-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes overlay-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes drawer-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes drawer-slide-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+.mobile-sidebar__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+
+.mobile-sidebar__overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  animation: overlay-fade-in 0.2s forwards;
+}
+.mobile-sidebar__overlay.close {
+  opacity: 0;
+  pointer-events: none;
+  animation: overlay-fade-out 0.2s forwards;
+}
+
+.root__mobile-sidebar-drawer {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: color-mix(in oklab, var(--color-neutral-800) 30%, var(--color-neutral-900));
+  display: flex;
+  flex-shrink: 0;
+  transform: translateX(100%);
+  animation: none;
+}
+
+.root__mobile-sidebar-drawer.open {
+  transform: translateX(0);
+  animation: drawer-slide-in 0.2s forwards;
+}
+.root__mobile-sidebar-drawer.close {
+  transform: translateX(100%);
+  animation: drawer-slide-out 0.2s forwards;
+}
+
+.root__sidebar-divider {
+  width: 1px;
+  background-color: var(--color-neutral-800);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.mobile-sidebar__wrapper {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+
+.mobile-sidebar__close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: var(--color-neutral-800);
+  border: none;
+  cursor: pointer;
+
+  .iconify-icon {
+    pointer-events: none;
+  }
+}
+
+.mobile-sidebar__close-button:hover {
+  background-color: var(--color-neutral-700);
+  border-color: var(--color-neutral-600);
+}

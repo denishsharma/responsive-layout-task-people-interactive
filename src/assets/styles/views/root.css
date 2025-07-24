@@ -26,22 +26,6 @@
   flex-direction: column;
 }
 
-@media (prefers-color-scheme: light) {
-  .root__sidebar {
-    background-color: var(--color-neutral-50);
-  }
-
-  .root__sidebar-divider {
-    background-color: var(--color-neutral-100);
-  }
-}
-
-@media (max-width: 991px) {
-  .root__sidebar {
-    display: none;
-  }
-}
-
 .fab-button {
   position: fixed;
   right: 1.5rem;
@@ -57,7 +41,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 90;
   font-size: 2rem;
   transition: background 0.2s;
 
