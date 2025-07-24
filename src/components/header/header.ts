@@ -1,13 +1,20 @@
 import styles from '~/components/header/styles/header.css?raw'
 import resetStyleSheet from '~/utils/reset-style'
+import { MobileHeader } from './mobile-header'
 
 const headerStyleSheet = new CSSStyleSheet()
 headerStyleSheet.replaceSync(styles)
 
 export class Header extends HTMLElement {
+  private mobileHeader?: MobileHeader
+  private mediaQuery: MediaQueryList
+
   constructor() {
     super()
     this.attachShadow({ mode: 'open' })
+
+    this.mediaQuery = window.matchMedia('(max-width: 860px)')
+    this.mediaQuery.addEventListener('change', () => this.#updateMobileHeader())
 
     if (!this.shadowRoot) { return }
     this.shadowRoot.adoptedStyleSheets = [resetStyleSheet, headerStyleSheet]
@@ -15,6 +22,38 @@ export class Header extends HTMLElement {
 
   connectedCallback() {
     this.#render()
+    this.#setupEventListeners()
+    this.#updateMobileHeader()
+  }
+
+  disconnectedCallback() {
+    this.mediaQuery.removeEventListener('change', () => this.#updateMobileHeader())
+    this.#removeMobileHeader()
+  }
+
+  #setupEventListeners() {
+    const optionsButton = this.shadowRoot?.querySelector('.header__options-button')
+    optionsButton?.addEventListener('click', () => {
+      this.mobileHeader?.open()
+    })
+  }
+
+  #updateMobileHeader() {
+    const isMobile = this.mediaQuery.matches
+
+    if (isMobile && !this.mobileHeader) {
+      this.mobileHeader = new MobileHeader()
+      document.body.appendChild(this.mobileHeader)
+    } else if (!isMobile && this.mobileHeader) {
+      this.#removeMobileHeader()
+    }
+  }
+
+  #removeMobileHeader() {
+    if (this.mobileHeader) {
+      this.mobileHeader.remove()
+      this.mobileHeader = undefined
+    }
   }
 
   #render() {
